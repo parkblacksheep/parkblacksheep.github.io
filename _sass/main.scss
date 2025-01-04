@@ -1,0 +1,50 @@
+// 1. 변수 정의
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$font-stack: 'Arial', sans-serif;
+
+// 2. 공통 스타일 정의
+body {
+  font-family: $font-stack;
+  background-color: $primary-color;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+// 3. 중첩 스타일링
+nav {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+
+      a {
+        text-decoration: none;
+        color: $secondary-color;
+        &:hover {
+          color: darken($secondary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// 4. 믹스인 사용
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.button {
+  background-color: $secondary-color;
+  padding: 10px 20px;
+  @include border-radius(5px);
+  &:hover {
+    background-color: lighten($secondary-color, 10%);
+  }
+}
