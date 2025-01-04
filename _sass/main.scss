@@ -1,7 +1,6 @@
 // 1. 변수 정의
 $primary-color: #3498db;
 $secondary-color: #2ecc71;
-$font-stack: 'Arial', sans-serif;
 
 // 2. 공통 스타일 정의
 body {
@@ -14,24 +13,18 @@ body {
 
 // 3. 중첩 스타일링
 nav {
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      display: inline-block;
-      margin-right: 10px;
-
-      a {
-        text-decoration: none;
-        color: $secondary-color;
-        &:hover {
-          color: darken($secondary-color, 10%);
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          color: color.adjust($secondary-color, $lightness: -10%);
+          &:hover {
+            color: color.scale($secondary-color, $lightness: -20.4%);
+          }
         }
       }
     }
   }
-}
 
 // 4. 믹스인 사용
 @mixin border-radius($radius) {
@@ -41,10 +34,8 @@ nav {
 }
 
 .button {
-  background-color: $secondary-color;
-  padding: 10px 20px;
-  @include border-radius(5px);
-  &:hover {
-    background-color: lighten($secondary-color, 10%);
+    background-color: $secondary-color;
+    &:hover {
+      background-color: color.adjust($secondary-color, $lightness: 10%);
+    }
   }
-}
