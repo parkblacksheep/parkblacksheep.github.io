@@ -1,2 +1,5 @@
 
 @import "{{ jekyll-theme-chirpy }}";
+body{
+    background-color: beige;
+}
